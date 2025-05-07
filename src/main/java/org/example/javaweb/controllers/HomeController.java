@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController  {
+public class HomeController extends BaseController  {
     @Autowired
     DogRepository dogRepository;
 
@@ -15,18 +15,24 @@ public class HomeController  {
     String empty(Model model)
     {
         model.addAttribute("activeFunction", "home");
-
         model.addAttribute("dogs", dogRepository.findAll());
         return "dogs";
     }
     @GetMapping(path="/list")
-    String list(Model model)
+    public String list(Model model)
     {
         model.addAttribute("activeFunction", "home");
 
         model.addAttribute("dogs", dogRepository.findAll());
+       String user = getLoggedInEmail();
+       model.addAttribute("user", user);
         return "list";
     }
-
+    @GetMapping("/scheduleadmin")
+    public String scheduleAdminPage(Model model) {
+        String user = getLoggedInEmail(); // från BaseController
+        model.addAttribute("user", user);
+        return "scheduleadmin";
+    }
 
 }
