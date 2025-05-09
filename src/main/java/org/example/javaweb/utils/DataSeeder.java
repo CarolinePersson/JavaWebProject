@@ -46,15 +46,7 @@ public class DataSeeder {
 
     private String getRandomImage() throws URISyntaxException {
         //Get all files in dir
-        URL resource = getClass().getClassLoader().getResource("static/images/dogs");
-        Path dir = Paths.get(resource.toURI());
-
-        Set<String> allFiles =  Stream.of(new File(String.valueOf(dir)).listFiles())
-                .filter(file -> !file.isDirectory())
-                .map(File::getName)
-                .collect(Collectors.toSet());
-
-        return getByRandomClass(allFiles);
+        return "";
     }
 
     public static <T> T getByRandomClass(Set<T> set) {
