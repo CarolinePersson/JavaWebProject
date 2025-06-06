@@ -3,42 +3,29 @@ package org.example.javaweb.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Dog")
+@Table(name = "dogs") // lowercase = enklare i PostgreSQL
 public class Dog {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="Id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; // Byt från int till Long
 
-    @Column(name="Age")
     private String age;
-
-    @Column(name="Gender")
     private String gender;
-
-    @Column(name = "Breed")
     private String breed;
-
-    @Column(name="SoldTo")
     private String soldTo;
-    @Column(name="Image")
     private String image;
-
-    @Column(name="Price")
     private int price;
-
-    @Column(name="Name")
     private String name;
-
-    @Column(name="Size")
     private String size;
 
+    // --- Getters & Setters ---
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -54,8 +41,8 @@ public class Dog {
         return gender;
     }
 
-    public void setGender(String hender) {
-        this.gender = hender;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getBreed() {
@@ -72,6 +59,14 @@ public class Dog {
 
     public void setSoldTo(String soldTo) {
         this.soldTo = soldTo;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public int getPrice() {
@@ -96,13 +91,5 @@ public class Dog {
 
     public void setSize(String size) {
         this.size = size;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 }
