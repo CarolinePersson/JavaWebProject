@@ -4,6 +4,9 @@ phases:
   install:
     runtime-versions:
       java: corretto21
+    commands:
+      - echo Installing Maven dependencies...
+      - mvn dependency:resolve
   build:
     commands:
       - echo Build started on `date`
